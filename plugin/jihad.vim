@@ -36,3 +36,7 @@ function JihadClassPart(type)
 
     return l:data[a:type]
 endfunction
+
+function JihadProjectAuthor()
+    return g:jihad_project_author
+endfunction
