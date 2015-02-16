@@ -8,6 +8,10 @@ snippet juser
 	Jihad_Modules_User_Model_User
 snippet juseri
 	Jihad_Modules_User_UserInterface
+snippet jcont
+	$this->getIM()->controller->${1}
+snippet jtempl
+	$this->getIM()->templater->${1}
 snippet jmanag
 	$this->getIM()->manager->${1}
 snippet jim
@@ -41,7 +45,7 @@ snippet controller
 		public function getSupportedNames()
 		{
 			return array(
-				'`JihadClassPart('jihad_path')`',
+				'`JihadClassPart('jihad_path')`',${1}
 			);
 		}
 	}
@@ -66,7 +70,7 @@ snippet link
 		public function getSupportedNames()
 		{
 			return array(
-				'`JihadClassPart('jihad_path')`',
+				'`JihadClassPart('jihad_path')`',${1}
 			);
 		}
 	}
@@ -90,7 +94,7 @@ snippet manager
 		public function getSupportedNames()
 		{
 			return array(
-				'`JihadClassPart('jihad_path')`',
+				'`JihadClassPart('jihad_path')`',${1}
 			);
 		}
 	}
@@ -120,7 +124,7 @@ snippet model
 						'title'     => 'ID',
 						'type'      => 'auto',
 						'required'  => true,
-					),
+					),${1}
 					'added' => array(
 						'title'     => 'Added',
 						'type'      => 'datetime',
