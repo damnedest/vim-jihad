@@ -35,6 +35,14 @@ snippet controller
 
 	class `JihadClassName()` extends Jihad_Modules_CoreController_ReflectionAbstract
 	{
+	    /**
+		 * Default action
+		 *
+		 * @type string
+		 */
+
+		const DefaultAction = 'Default';
+
 		/**
 		 * Returns controller name
 		 *
@@ -45,8 +53,21 @@ snippet controller
 		public function getSupportedNames()
 		{
 			return array(
-				'`JihadClassPart('jihad_path')`',${1}
+				'`JihadClassPart('jihad_path')`',
 			);
+		}
+
+		/**
+		 * Page default
+		 *
+		 * @param array $params
+		 * @access public
+		 * @return void
+		 */
+
+		public function pageDefault($params)
+		{
+			${1};
 		}
 	}
 # Jihad links class
@@ -70,10 +91,23 @@ snippet link
 		public function getSupportedNames()
 		{
 			return array(
-				'`JihadClassPart('jihad_path')`',${1}
+				'`JihadClassPart('jihad_path')`',
 			);
 		}
+
+		/**
+		 * Link main
+		 *
+		 * @access protected
+		 * @return string
+		 */
+
+		protected function linkMain(${1})
+		{
+			return '${2}';
+		}
 	}
+# Jihad manager class
 snippet manager
 	/**
 	 * `JihadClassDescription()`
@@ -98,6 +132,7 @@ snippet manager
 			);
 		}
 	}
+# Jihad model class
 snippet model
 	/**
 	 * `JihadClassDescription()`
