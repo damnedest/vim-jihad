@@ -1,0 +1,82 @@
+snippet juser
+	Jihad_Modules_User_Model_User
+snippet juseri
+	Jihad_Modules_User_UserInterface
+snippet jmanag
+	$this->getIM()->manager->${1}
+snippet jim
+	$this->getIM()->${1}
+snippet jlink
+	$this->getIM()->links->${1}
+snippet jutils
+	$this->getUtils()->${1}
+snippet jm
+	Jihad_Modules_${1}
+snippet jmc
+	Jihad_Modules_Core${1}
+snippet jmanager
+	/**
+	 * `JihadClassDescription()`
+	 *
+	 * @uses Jihad_Modules_CoreManager_ManagerAbstract
+	 * @author `JihadProjectAuthor()`
+	 */
+
+	class `JihadClassName()` extends Jihad_Modules_CoreManager_ManagerAbstract
+	{
+		/**
+		 * Returns supported names list
+		 *
+		 * @access public
+		 * @return array
+		 */
+
+		public function getSupportedNames()
+		{
+			return array(
+				'`JihadClassPart('jihad_path')`',
+			);
+		}
+	}
+snippet jmodel
+	/**
+	 * `JihadClassDescription()`
+	 *
+	 * @uses Jihad_Modules_CoreOldOrm_ObjectAbstract
+	 * @author `JihadProjectAuthor()`
+	 */
+
+	class `JihadClassName()` extends Jihad_Modules_CoreOldOrm_ObjectAbstract
+	{
+		/**
+		 * Function returns structure of object
+		 *
+		 * @access public
+		 * @return array
+		 */
+
+		public function processStructure()
+		{
+			return array(
+				'table'     => '`JihadClassPart('jihad_name')`s',
+				'fields'    => array(
+					'id' => array(
+						'title'     => 'ID',
+						'type'      => 'auto',
+						'required'  => true,
+					),
+					'added' => array(
+						'title'     => 'Added',
+						'type'      => 'datetime',
+						'required'  => true,
+					),
+					'changed' => array(
+						'title'     => 'Changed',
+						'type'      => 'datetime',
+						'required'  => true,
+					),
+				),
+				'primary' => array('id'),
+			);
+		}
+	}
