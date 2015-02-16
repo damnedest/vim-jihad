@@ -1,3 +1,9 @@
+# Jihad name
+snippet jclass
+	`JihadClassName()`
+# Jihad description
+snippet jdesc
+	`JihadClassDescription()`
 snippet juser
 	Jihad_Modules_User_Model_User
 snippet juseri
@@ -14,7 +20,57 @@ snippet jm
 	Jihad_Modules_${1}
 snippet jmc
 	Jihad_Modules_Core${1}
-snippet jmanager
+# Jihad controller class
+snippet controller
+	/**
+	 * `JihadClassDescription()`
+	 *
+	 * @uses Jihad_Modules_CoreController_ReflectionAbstract
+	 * @author `JihadProjectAuthor()`
+	 */
+
+	class `JihadClassName()` extends Jihad_Modules_CoreController_ReflectionAbstract
+	{
+		/**
+		 * Returns controller name
+		 *
+		 * @access public
+		 * @return array
+		 */
+
+		public function getSupportedNames()
+		{
+			return array(
+				'`JihadClassPart('jihad_path')`',
+			);
+		}
+	}
+# Jihad links class
+snippet link
+	/**
+	 * `JihadClassDescription()`
+	 *
+	 * @uses Jihad_Modules_CoreLink_LinkAbstract
+	 * @author `JihadProjectAuthor()`
+	 */
+
+	class `JihadClassName()` extends Jihad_Modules_CoreLink_LinkAbstract
+	{
+		/**
+		 * Returns supported names
+		 *
+		 * @access public
+		 * @return array
+		 */
+
+		public function getSupportedNames()
+		{
+			return array(
+				'`JihadClassPart('jihad_path')`',
+			);
+		}
+	}
+snippet manager
 	/**
 	 * `JihadClassDescription()`
 	 *
@@ -38,7 +94,7 @@ snippet jmanager
 			);
 		}
 	}
-snippet jmodel
+snippet model
 	/**
 	 * `JihadClassDescription()`
 	 *
