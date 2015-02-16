@@ -38,5 +38,5 @@ function JihadClassPart(type)
 endfunction
 
 function JihadProjectAuthor()
-    return g:jihad_project_author
+    return g:pdv_cfg_Author
 endfunction
