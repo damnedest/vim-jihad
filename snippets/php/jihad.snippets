@@ -175,3 +175,42 @@ snippet model
 			);
 		}
 	}
+# Auto script
+snippet auto
+	/**
+	 * `JihadClassDescription()`
+	 *
+	 * @uses Jihad_Modules_CoreRunner_RunableAbstract
+	 * @author `JihadProjectAuthor()`
+	 */
+
+	class `JihadClassName()` extends Jihad_Modules_CoreRunner_RunableAbstract
+	{
+		/**
+		 * Returns list of rules
+		 *
+		 * @access protected
+		 * @return array
+		 */
+
+		protected function getRules()
+		{
+			return array_replace(
+				parent::getRules(),
+				array(
+				)
+			);
+		}
+
+		/**
+		 * Process
+		 *
+		 * @access protected
+		 * @return void
+		 */
+
+		protected function process()
+		{
+			${1};
+		}
+	}
