@@ -24,8 +24,10 @@ snippet jm
 	Jihad_Modules_${1}
 snippet jmc
 	Jihad_Modules_Core${1}
+snippet jme
+	throw new Jihad_Modules_Exception(${1});
 # Jihad controller class
-snippet controller
+snippet controlle
 	/**
 	 * `JihadClassDescription()`
 	 *
@@ -212,5 +214,55 @@ snippet auto
 		protected function process()
 		{
 			${1};
+		}
+	}
+# Forms
+	/**
+	 * `JihadClassDescription()`
+	 *
+	 * @uses Jihad_Modules_CoreForm_ObjectAbstract
+	 * @author `JihadProjectAuthor()`
+	 */
+
+	class `JihadClassName()` extends Jihad_Modules_CoreForm_ObjectAbstract
+	{
+		/**
+		 * Function returns structure of object
+		 *
+		 * @access public
+		 * @return array
+		 */
+
+		public function processStructure()
+		{
+			return array(
+				'fields' => array(
+					'${1}' => array(
+						'type'      => 'text',
+						'required'  => false,
+						'n12s'      => array(
+						),
+						'v9s'      => array(
+						),
+					),
+				),
+				'submits' => array(
+					'submit' => array(
+					),
+				),
+			);
+		}
+
+		/**
+		 * Returns signature params
+		 *
+		 * @access protected
+		 * @return array
+		 */
+
+		protected function _getSignatureParams()
+		{
+			return array(
+			);
 		}
 	}
