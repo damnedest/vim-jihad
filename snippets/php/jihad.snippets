@@ -27,7 +27,7 @@ snippet jmc
 snippet jme
 	throw new Jihad_Modules_Exception(${1});
 # Jihad controller class
-snippet controlle
+snippet controller
 	/**
 	 * `JihadClassDescription()`
 	 *
@@ -174,6 +174,105 @@ snippet model
 					),
 				),
 				'primary' => array('id'),
+			);
+		}
+
+		/**
+		 * Notification of changes occurring over the sample.
+		 *
+		 * @param int       $action
+		 * @param array     $fields_changed
+		 * @param object    $orig_object
+		 * @access protected
+		 * @return void
+		 */
+
+		protected function on_change_single($action, array $fields_changed, $orig_object = null)
+		{
+			parent::on_change_single($action, $fields_changed, $orig_object);
+
+			$this->getIM()->manager->orm->cache->clear(
+				$this,
+				$orig_object,
+				$fields_changed,
+				array(
+					'id' => function($object)
+					{
+					},
+				),
+				array(
+				)
+			);
+		}
+	}
+# Jihad model dictionary class
+snippet dict_model
+	/**
+	 * `JihadClassDescription()`
+	 *
+	 * @uses Jihad_Modules_CoreHelper_Model_DictionaryAbstract
+	 * @author `JihadProjectAuthor()`
+	 */
+
+	class `JihadClassName()` extends Jihad_Modules_CoreHelper_Model_DictionaryAbstract
+	{
+		/**
+		 * Editable fields
+		 *
+		 * @var array
+		 * @access protected
+		 */
+
+		protected $editableFields = array(
+		);
+
+		/**
+		 * Function returns structure of object
+		 *
+		 * @access public
+		 * @return array
+		 */
+
+		public function processStructure()
+		{
+			return array_replace_recursive(
+				parent::processStructure(),
+				array(
+					'table' => '`JihadClassPart('jihad_name')`s',
+					'fields' => array(
+						${1}
+					),
+					'indexes' => array(
+					),
+				)
+			);
+		}
+
+		/**
+		 * Notification of changes occurring over the sample.
+		 *
+		 * @param int       $action
+		 * @param array     $fields_changed
+		 * @param object    $orig_object
+		 * @access protected
+		 * @return void
+		 */
+
+		protected function on_change_single($action, array $fields_changed, $orig_object = null)
+		{
+			parent::on_change_single($action, $fields_changed, $orig_object);
+
+			$this->getIM()->manager->orm->cache->clear(
+				$this,
+				$orig_object,
+				$fields_changed,
+				array(
+					'id' => function($object)
+					{
+					},
+				),
+				array(
+				)
 			);
 		}
 	}
