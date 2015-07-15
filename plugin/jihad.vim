@@ -52,3 +52,28 @@ endfunction
 function JihadProjectAuthor()
     return g:pdv_cfg_Author
 endfunction
+
+function! Run_handler_for_file(file, count)
+endfunction
+
+function! JihadRunHandlerForFile(file, count)
+    if empty(a:file)
+        " Todo use localised error messages
+        echoerr "E446: No file name under cursor"
+    else
+        let tags = taglist("^" . a:file . "$")
+
+        let handled = 0
+        if len(tags) == 1
+            echo "Normal"
+            exe ":silent! tag " . a:file
+            let handled = 1
+        endif
+
+        if !handled
+            exe "normal! gf"
+        endif
+    endif
+endfunction
+
+noremap <silent> gf :<C-U>call JihadRunHandlerForFile(expand("<cfile>"),v:count)<cr>
