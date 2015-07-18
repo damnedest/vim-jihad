@@ -58,11 +58,11 @@ function! JihadRunHandlerForFile(file, word)
         " Todo use localised error messages
         echoerr "E446: No file name under cursor"
     else
-        let tags = taglist("^/" . a:file . "$")
+        let tags = taglist("^" . a:file . "$")
 
         let handled = 0
         if len(tags) == 1
-            exe ":silent! tag /" . a:file
+            exe ":silent! tag " . a:file
             let handled = 1
         endif
 
