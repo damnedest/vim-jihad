@@ -54,7 +54,7 @@ function JihadProjectAuthor()
 endfunction
 
 function! JihadRunHandlerForFile(file, word)
-    if empty(a:file) && empty(word)
+    if empty(a:file) && empty(a:word)
         " Todo use localised error messages
         echoerr "E446: No file name under cursor"
     else
