@@ -48,7 +48,6 @@ snippet controller
 		/**
 		 * Returns controller name
 		 *
-		 * @access public
 		 * @return array
 		 */
 
@@ -63,8 +62,6 @@ snippet controller
 		 * Page default
 		 *
 		 * @param array $params
-		 * @access public
-		 * @return void
 		 */
 
 		public function pageDefault($params)
@@ -86,7 +83,6 @@ snippet link
 		/**
 		 * Returns supported names
 		 *
-		 * @access public
 		 * @return array
 		 */
 
@@ -100,7 +96,6 @@ snippet link
 		/**
 		 * Link main
 		 *
-		 * @access protected
 		 * @return string
 		 */
 
@@ -123,7 +118,6 @@ snippet manager
 		/**
 		 * Returns supported names list
 		 *
-		 * @access public
 		 * @return array
 		 */
 
@@ -148,7 +142,6 @@ snippet model
 		/**
 		 * Function returns structure of object
 		 *
-		 * @access public
 		 * @return array
 		 */
 
@@ -185,8 +178,6 @@ snippet model
 		 * @param int       $action
 		 * @param array     $fields_changed
 		 * @param object    $orig_object
-		 * @access protected
-		 * @return void
 		 */
 
 		protected function on_change_single($action, array $fields_changed, $orig_object = null)
@@ -222,7 +213,6 @@ snippet dict_model
 		 * Editable fields
 		 *
 		 * @var array
-		 * @access protected
 		 */
 
 		protected $editableFields = array(
@@ -231,7 +221,6 @@ snippet dict_model
 		/**
 		 * Function returns structure of object
 		 *
-		 * @access public
 		 * @return array
 		 */
 
@@ -256,8 +245,6 @@ snippet dict_model
 		 * @param int       $action
 		 * @param array     $fields_changed
 		 * @param object    $orig_object
-		 * @access protected
-		 * @return void
 		 */
 
 		protected function on_change_single($action, array $fields_changed, $orig_object = null)
@@ -292,7 +279,6 @@ snippet auto
 		/**
 		 * Returns list of rules
 		 *
-		 * @access protected
 		 * @return array
 		 */
 
@@ -307,9 +293,6 @@ snippet auto
 
 		/**
 		 * Process
-		 *
-		 * @access protected
-		 * @return void
 		 */
 
 		protected function process()
@@ -331,7 +314,6 @@ snippet form
 		/**
 		 * Function returns structure of object
 		 *
-		 * @access public
 		 * @return array
 		 */
 
@@ -358,7 +340,6 @@ snippet form
 		/**
 		 * Returns signature params
 		 *
-		 * @access protected
 		 * @return array
 		 */
 
