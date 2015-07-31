@@ -7,6 +7,7 @@ let loaded_jihad = 1
 function JihadClassName()
     let l:path = expand('%:p')
     let l:path = substitute(l:path, '^\(.*/projects/\)', '', 'g')
+    let l:path = substitute(l:path, '^\(.*/source/\)', '', 'g')
 
     let l:class = substitute(l:path, '/', '_', 'g')
     let l:class = substitute(l:class, '\(\..*\)$', '', 'g')
@@ -17,6 +18,7 @@ endfunction
 function JihadClassDescription()
     let l:path = expand('%:p')
     let l:path = substitute(l:path, '^\(.*/projects/\)', '', 'g')
+    let l:path = substitute(l:path, '^\(.*/source/\)', '', 'g')
 
     let l:description = substitute(l:path, '/', '_', 'g')
     let l:description = substitute(l:description, '\(\..*\)$', '', 'g')
