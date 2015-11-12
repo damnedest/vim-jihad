@@ -26,6 +26,48 @@ snippet jmc
 	Jihad_Modules_Core${1}
 snippet jme
 	throw new Jihad_Modules_Exception(${1});
+snippet jcreate
+	public function processCreate()
+	{
+		return $this
+			->clear()
+			->set()
+			->insert()
+		;
+	}
+snippet jcreate_data
+	public function processCreate(array $data = array())
+	{
+		$this
+			->clear()
+			->set()
+		;
+
+		foreach ($data as $field => $value)
+			$this->set($field, $value);
+
+		return $this->insert();
+	}
+snippet jmodel_link
+	/**
+	 * Returns links of current object
+	 *
+	 * @return array
+	 */
+
+	public function processLinks()
+	{
+		return $this->getIM()->dblinks->merge(
+			parent::processLinks(),
+			$this->getIM()->dblinks->prepareLink(
+				$this->getIM()->dblinks->getConstructor()
+					->many2one(
+						'`JihadClassName()`::f->n',
+						'::id'
+					)
+			)
+		);
+	}
 # Jihad controller class
 snippet controller
 	/**
