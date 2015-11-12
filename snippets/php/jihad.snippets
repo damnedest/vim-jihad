@@ -68,6 +68,21 @@ snippet jmodel_link
 			)
 		);
 	}
+snippet jq_visible
+	/**
+	 * Query visible
+	 *
+	 * @return Jihad_Modules_CoreQuery_Constructor
+	 */
+
+	public function queryVisible()
+	{
+		$qq = Q::QQ()
+			->param('is_deleted', 0)
+		;
+
+		return $qq;
+	}
 # Jihad controller class
 snippet controller
 	/**
