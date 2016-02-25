@@ -55,24 +55,37 @@ function JihadProjectAuthor()
     return g:pdv_cfg_Author
 endfunction
 
-function! JihadRunHandlerForFile(file, word)
+function! JihadRunHandlerForFile(file, word, extra)
     if empty(a:file) && empty(a:word)
         " Todo use localised error messages
         echoerr "E446: No file name under cursor"
     else
-        let tags = taglist("^" . a:file . "$")
+        if !a:extra
+            let tags = taglist("^\^" . a:file . "$")
+        else
+            let tags = taglist("^" . a:file . "$")
+        endif
 
         let handled = 0
         if len(tags) == 1
-            exe ":silent! tag " . a:file
+            if !a:extra
+                exe ":silent! tag " . a:file
+            else
+                exe ":silent! tag ^" . a:file
+            endif
             let handled = 1
         endif
 
         if !handled
-            exe ":silent! tag " . a:word
+            if !a:extra
+                exe ":silent! tag " . a:word
+            else
+                exe ":silent! tag ^" . a:word
+            endif
         endif
     endif
 endfunction
 
-noremap <silent> <C-]> :<C-U>call JihadRunHandlerForFile(expand("<cfile>"),expand("<cword>"))<cr>
-noremap <silent> <C-LeftMouse> <LeftMouse>:<C-U>call JihadRunHandlerForFile(expand("<cfile>"),expand("<cword>"))<cr>
+noremap <silent> <C-]> :<C-U>call JihadRunHandlerForFile(expand("<cfile>"),expand("<cword>"), 0)<cr>
+noremap <silent> <C-LeftMouse> <LeftMouse>:<C-U>call JihadRunHandlerForFile(expand("<cfile>"),expand("<cword>"), 0)<cr>
+noremap <silent> <C-RightMouse> <LeftMouse>:<C-U>call JihadRunHandlerForFile(expand("<cfile>"),expand("<cword>"), 1)<cr>
