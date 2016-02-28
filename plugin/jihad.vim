@@ -61,9 +61,9 @@ function! JihadRunHandlerForFile(file, word, extra)
         echoerr "E446: No file name under cursor"
     else
         if !a:extra
-            let tags = taglist("^\^" . a:file . "$")
-        else
             let tags = taglist("^" . a:file . "$")
+        else
+            let tags = taglist("^\^" . a:file . "$")
         endif
 
         let handled = 0
