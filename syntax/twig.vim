@@ -17,11 +17,26 @@
 "     2011 July 27:   Changed all references of jinja tp twig
 "     2014 December 4:   Do not assume that the base filetype is HTML.
 
+
+" For version 5.x: Clear all syntax items
+" For version 6.x: Quit when a syntax file was already loaded
+if version < 600
+  syntax clear
+elseif exists("b:current_syntax")
+  finish
+endif
+
+" we define it here so that included files can test for it
 if !exists("main_syntax")
   let main_syntax='twig'
 endif
 
-runtime! syntax/html.vim
+if version < 600
+  so <sfile>:p:h/html.vim
+else
+  runtime! syntax/html.vim
+endif
+unlet b:current_syntax
 
 syntax case match
 
@@ -111,4 +126,10 @@ if version >= 508 || !exists("did_twig_syn_inits")
   HiLink twigComment Comment
 
   delcommand HiLink
+endif
+
+let b:current_syntax = "twig"
+
+if main_syntax == 'twig'
+  unlet main_syntax
 endif
