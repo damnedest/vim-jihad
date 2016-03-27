@@ -1,2 +1,2 @@
 " XHTML
-    au BufRead,BufNewFile *.twig		set filetype=twig
+    au BufRead,BufNewFile *.twig		set filetype=twig.html
