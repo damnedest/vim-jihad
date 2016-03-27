@@ -27,16 +27,6 @@ elseif exists("b:current_syntax")
 endif
 
 " we define it here so that included files can test for it
-if !exists("main_syntax")
-  let main_syntax='twig'
-endif
-
-if version < 600
-  so <sfile>:p:h/html.vim
-else
-  runtime! syntax/html.vim
-endif
-unlet b:current_syntax
 
 syntax case match
 
@@ -127,6 +117,17 @@ if version >= 508 || !exists("did_twig_syn_inits")
 
   delcommand HiLink
 endif
+
+if !exists("main_syntax")
+  let main_syntax='twig'
+endif
+
+if version < 600
+  so <sfile>:p:h/html.vim
+else
+  runtime! syntax/html.vim
+endif
+unlet b:current_syntax
 
 let b:current_syntax = "twig"
 
