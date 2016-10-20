@@ -345,7 +345,7 @@ snippet form
 	 * `JihadClassDescription()`
 	 */
 
-	class `JihadClassName()` extends Jihad_Modules_CoreForm_ObjectAbstract
+	class `JihadClassName()` extends Jihad_Modules_CoreForm_FormAbstract
 	{
 		/**
 		 * Function returns structure of object
@@ -355,33 +355,20 @@ snippet form
 
 		public function processStructure()
 		{
-			return array(
-				'fields' => array(
-					'${1}' => array(
-						'type'      => 'text',
-						'required'  => false,
-						'n12s'      => array(
-						),
-						'v9s'      => array(
-						),
-					),
-				),
-				'submits' => array(
-					'submit' => array(
-					),
-				),
+			parent::processStructure();
+
+			$this->addField(
+				Apishka_Form_Field_String::apishka('${1}')
 			);
 		}
-
+		
 		/**
-		 * Returns signature params
+		 * Validate
 		 *
-		 * @return array
+		 * @param array $data
 		 */
 
-		protected function _getSignatureParams()
+		public function validate(array $data)
 		{
-			return array(
-			);
 		}
 	}
