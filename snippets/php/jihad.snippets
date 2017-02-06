@@ -68,7 +68,7 @@ snippet jmodel_link
 			)
 		);
 	}
-snippet jq_visible
+snippet jquery_visible
 	/**
 	 * Query visible
 	 *
@@ -79,6 +79,25 @@ snippet jq_visible
 	{
 		$qq = Q::QQ()
 			->param('is_deleted', 0)
+		;
+
+		return $qq;
+	}
+snippet jquery_byid
+	/**
+	 * Query by id
+	 *
+	 * @param int  $id
+	 * @param bool $cache
+	 *
+	 * @return Jihad_Modules_CoreQuery_Constructor
+	 */
+
+	public function queryById($id, $cache = true)
+	{
+		$qq = Q::QQ()
+			->param('id', (int) $id)
+			->cache($cache)${1}
 		;
 
 		return $qq;
@@ -361,7 +380,7 @@ snippet form
 				Apishka_Form_Field_String::apishka('${1}')
 			);
 		}
-		
+
 		/**
 		 * Validate
 		 *
