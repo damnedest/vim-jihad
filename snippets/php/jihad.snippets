@@ -68,6 +68,17 @@ snippet jmodel_link
 			)
 		);
 	}
+snippet jmodel_isdeleted
+	/**
+	 * Returns is deleted flag
+	 *
+	 * @return bool
+	 */
+
+	public function __getIsDeleted()
+	{
+		return $this->__get('is_deleted') <> 0;
+	}
 snippet jquery_visible
 	/**
 	 * Query visible
